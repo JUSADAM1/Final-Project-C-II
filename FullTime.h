@@ -6,5 +6,9 @@ class FullTime :
 public:
 	FullTime();
 	~FullTime();
+	void setSalary();
+	void setBenefits();
+	void setWorkTime();
+	void setWorkShift();
 };
 
