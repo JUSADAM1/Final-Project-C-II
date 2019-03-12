@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 class Employee
 {
 public:
@@ -11,5 +12,13 @@ public:
 	void setProject();
 	void setCompanyLength();
 	void setPosition();
+	void getID();
+private:
+	int ID;
+	string email;
+	string firstName;
+	string lastName;
+	string project;
+	
 };
 
