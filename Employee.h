@@ -1,3 +1,6 @@
+#ifndef FINAL_PROJECT_C_II_EMPLOYEE_H
+#define FINAL_PROJECT_C_II_EMPLOYEE_H
+
 #pragma once
 #include <string>
 #include <vector>
@@ -38,3 +41,4 @@ private:
 	
 };
 
+#endif
