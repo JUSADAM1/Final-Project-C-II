@@ -10,56 +10,56 @@
  */
 
 FullTime::FullTime()
-{
-}
+= default;
 
 FullTime::FullTime(double salary, int shift, string benefits) {
-
+    this->salary = salary;
+    this->shift = shift;
+    this->benefits = move(benefits);
 }
 
 FullTime::~FullTime()
-{
+= default;
+
+
+void FullTime::setSalary(double salary) {
+    this->salary = salary;
 }
 
-
-void FullTime::setSalary() {
-
+void FullTime::setBenefits(string benefits) {
+    this->benefits = move(benefits);
 }
 
-void FullTime::setBenefits() {
-
+void FullTime::setWorkStartTime(vector<double> startTime) {
+    this->workStartTime = move(startTime);
 }
 
-void FullTime::setWorkStartTime() {
-
+void FullTime::setWorkEndTime(vector<double> endTime) {
+    this->workEndTime = move(endTime);
 }
 
-void FullTime::setWorkEndTime() {
-
+void FullTime::setWorkShift(int shift) {
+    this->shift = shift;
 }
 
-void FullTime::setWorkShift() {
-
+double FullTime::getSalary() {
+    return salary;
 }
 
-void FullTime::getSalary() {
-
+string FullTime::getBenefits() {
+    return benefits;
 }
 
-void FullTime::getBenefits() {
-
+vector<double> FullTime::getWorkStartTime() {
+    return workStartTime;
 }
 
-void FullTime::getWorkStartTime() {
-
+vector<double> FullTime::getWorkEndTime() {
+    return workEndTime;
 }
 
-void FullTime::getWorkEndTime() {
-
-}
-
-void FullTime::getWorkShift() {
-
+int FullTime::getWorkShift() {
+    return shift;
 }
 
 void FullTime::display() {

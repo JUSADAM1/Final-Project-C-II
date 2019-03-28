@@ -29,7 +29,7 @@ public:
 	string getPosition();
 	int getCompanyLength();
 
-	void display();
+    virtual void display();
 private:
 	int ID;
 	int companyLength;

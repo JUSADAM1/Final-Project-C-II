@@ -7,19 +7,19 @@ public:
 	FullTime();
 	FullTime(double salary, int shift, string benefits);
 	~FullTime();
-	void setSalary();
-	void setBenefits();
-	void setWorkStartTime();
-	void setWorkEndTime();
-	void setWorkShift();
+	void setSalary(double salary);
+	void setBenefits(string benefits);
+	void setWorkStartTime(vector<double> startTime);
+	void setWorkEndTime(vector<double> endTime);
+	void setWorkShift(int shift);
 
-	void getSalary();
-	void getBenefits();
-	void getWorkStartTime();
-	void getWorkEndTime();
-	void getWorkShift();
+	double getSalary();
+	string getBenefits();
+	vector<double> getWorkStartTime();
+	vector<double> getWorkEndTime();
+	int getWorkShift();
 
-	void display();
+	void display() override;
 	void display(bool workTime);
 private:
 	int shift;
