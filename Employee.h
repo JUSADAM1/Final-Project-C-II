@@ -7,28 +7,27 @@
 
 using std::string;
 using std::vector;
-
-
+using std::move;
 class Employee
 {
 public:
 	Employee();
 	Employee(int ID, int companyLength, string email, string firstName, string lastName, string project, string position);
 	~Employee();
-	void setID();
-	void setEmail();
-	void setFirstName();
-	void setLastName();
-	void setProject();
-	void setCompanyLength();
-	void setPosition();
+	void setID(int ID);
+	void setEmail(string email);
+	void setFirstName(string firstName);
+	void setLastName(string lastName);
+	void setProject(string project);
+	void setCompanyLength(int companyLength);
+	void setPosition(string position);
 
-	void getID();
-	void getEmail();
-	void getFirstName();
-	void getLastName();
-	void getPosition();
-	void getCompanyLength();
+	int getID();
+	string getEmail();
+	string getFirstName();
+	string getLastName();
+	string getPosition();
+	int getCompanyLength();
 
 	void display();
 private:
@@ -39,8 +38,7 @@ private:
 	string lastName;
 	string project;
 	string position;
-
-
+	
 };
 
 #endif

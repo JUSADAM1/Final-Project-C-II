@@ -1,3 +1,5 @@
+#include <utility>
+
 #include "Employee.h"
 /*
  * int ID;
@@ -13,9 +15,15 @@ Employee::Employee()
 {
 }
 
-Employee::Employee(int ID, int companyLength, string email, string firstName, string lastName, string project,
-                   string position) {
-
+Employee::Employee(int ID, int companyLength, string email, string firstName, string lastName, string project,string position)
+{
+    this->ID = ID;
+    this->companyLength = companyLength;
+    this->email = move(email);
+    this->firstName = move(firstName);
+    this->lastName = move(lastName);
+    this->project = move(project);
+    this->position = move(position);
 }
 
 Employee::~Employee()
@@ -23,56 +31,56 @@ Employee::~Employee()
 }
 
 
-void Employee::setID() {
-
+void Employee::setID(int ID) {
+    this->ID = ID;
 }
 
-void Employee::setEmail() {
-
+void Employee::setEmail(string email) {
+    this->email = move(email);
 }
 
-void Employee::setFirstName() {
-
+void Employee::setFirstName(string firstName) {
+    this->firstName = move(firstName);
 }
 
-void Employee::setLastName() {
-
+void Employee::setLastName(string lastName) {
+    this->lastName = move(lastName);
 }
 
-void Employee::setProject() {
-
+void Employee::setProject(string project) {
+    this-> project = move(project);
 }
 
-void Employee::setCompanyLength() {
-
+void Employee::setCompanyLength(int companyLength) {
+    this-> companyLength = companyLength;
 }
 
-void Employee::setPosition() {
-
+void Employee::setPosition(string position) {
+    this->project = move(position);
 }
 
-void Employee::getID() {
-
+int Employee::getID() {
+    return ID;
 }
 
-void Employee::getEmail() {
-
+string Employee::getEmail() {
+    return email;
 }
 
-void Employee::getFirstName() {
-
+string Employee::getFirstName() {
+    return firstName;
 }
 
-void Employee::getLastName() {
-
+string Employee::getLastName() {
+    return lastName;
 }
 
-void Employee::getPosition() {
-
+string Employee::getPosition() {
+    return position;
 }
 
-void Employee::getCompanyLength() {
-
+int Employee::getCompanyLength() {
+    return companyLength;
 }
 
 void Employee::display() {
