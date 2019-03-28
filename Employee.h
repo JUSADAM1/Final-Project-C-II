@@ -1,12 +1,19 @@
+#ifndef FINAL_PROJECT_C_II_EMPLOYEE_H
+#define FINAL_PROJECT_C_II_EMPLOYEE_H
+
 #pragma once
 #include <string>
+#include <vector>
 
 using std::string;
+using std::vector;
+
 
 class Employee
 {
 public:
 	Employee();
+	Employee(int ID, int companyLength, string email, string firstName, string lastName, string project, string position);
 	~Employee();
 	void setID();
 	void setEmail();
@@ -15,13 +22,25 @@ public:
 	void setProject();
 	void setCompanyLength();
 	void setPosition();
+
 	void getID();
+	void getEmail();
+	void getFirstName();
+	void getLastName();
+	void getPosition();
+	void getCompanyLength();
+
+	void display();
 private:
 	int ID;
+	int companyLength;
 	string email;
 	string firstName;
 	string lastName;
 	string project;
-	//TestS
+	string position;
+
+
 };
 
+#endif
