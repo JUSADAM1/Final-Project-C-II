@@ -1,5 +1,8 @@
 #pragma once
 #include <string>
+
+using std::string;
+
 class Employee
 {
 public:
@@ -19,6 +22,6 @@ private:
 	string firstName;
 	string lastName;
 	string project;
-	
+	//TestS
 };
 
