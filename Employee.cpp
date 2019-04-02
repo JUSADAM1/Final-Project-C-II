@@ -12,14 +12,13 @@
  */
 
 Employee::Employee()
-{
-}
+= default;
 
-Employee::Employee(int ID, int companyLength, string email, string firstName, string lastName, string project,string position)
+Employee::Employee(int ID, int companyLength, string firstName, string lastName, string project,string position)
 {
-    this->ID = ID;
+    ID = checkEmpID(ID);
     this->companyLength = companyLength;
-    this->email = move(email);
+    email = createEmail(firstName, lastName);
     this->firstName = move(firstName);
     this->lastName = move(lastName);
     this->project = move(project);
@@ -27,16 +26,11 @@ Employee::Employee(int ID, int companyLength, string email, string firstName, st
 }
 
 Employee::~Employee()
-{
-}
+= default;
 
 
 void Employee::setID(int ID) {
     this->ID = ID;
-}
-
-void Employee::setEmail(string email) {
-    this->email = move(email);
 }
 
 void Employee::setFirstName(string firstName) {
@@ -56,7 +50,7 @@ void Employee::setCompanyLength(int companyLength) {
 }
 
 void Employee::setPosition(string position) {
-    this->project = move(position);
+    this->position = move(position);
 }
 
 int Employee::getID() {
@@ -64,7 +58,7 @@ int Employee::getID() {
 }
 
 string Employee::getEmail() {
-    return email;
+    return createEmail(this->firstName, this->lastName);
 }
 
 string Employee::getFirstName() {
@@ -79,10 +73,53 @@ string Employee::getPosition() {
     return position;
 }
 
+string Employee::getProject() {
+    return project;
+}
+
 int Employee::getCompanyLength() {
     return companyLength;
 }
 
 void Employee::display() {
+    cout << "ID: " << getID() << endl;
+    cout << "First Name: " << getFirstName() << endl;
+    cout << "Last Name: " << getLastName() << endl;
+    cout << "Email: " << getEmail() << endl;
+    cout << "Position: " << getPosition() << endl;
+    cout << "Current Project: " << getProject() << endl;
+    cout << "Been with the company for " << getCompanyLength() << " years." << endl;
+}
 
+int Employee::checkEmpID(int ID) {
+
+    for(int i = 0; i < empIDList.size(); i++){
+
+        if(empIDList[i] == ID){
+            ID++;
+        }else{
+            empIDList.push_back(ID);
+        }
+
+    }
+
+    return ID;
+}
+
+string Employee::createEmail(string firstName, string lastName) {
+    string companyWebsite = "@myCompany.com";
+    string fNameString;
+    string lNameString;
+    int fNameLength = 3;
+    int lNameLength = 4;
+
+    for(int i = 0; i < fNameLength; i++){
+        fNameString += firstName[i];
+    }
+
+    for(int i = 0; i < lNameLength; i++){
+        lNameString += lastName[i];
+    }
+
+    return fNameString + lNameString + companyWebsite;
 }

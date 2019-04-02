@@ -4,6 +4,8 @@
 //#include "stdafx.h"
 #include <iostream>
 #include "Employee.h"
+#include "PartTime.h"
+#include "FullTime.h"
 
 using std::cout;
 using std::cin;
@@ -11,9 +13,27 @@ using std::endl;
 
 int main()
 {
-    Employee e(1, 3, "3", "3", "3", "e", "33");
+    //Part Time
+    PartTime e (120.9, 21.67, 1);
+    e.setID(1);
+    e.setFirstName("Tommy");
+    e.setLastName("Jones");
+    e.setProject("Creating new Robots");
+    e.setCompanyLength(12);
+    e.setPosition("R & D");
+    e.display(true);
 
-        cout << "Object Created" << endl;
+    cout << "" << endl;
+
+    FullTime f(120000.12, 1, true, true, false);
+    f.setID(2);
+    f.setFirstName("James");
+    f.setLastName("Yason");
+    f.setProject("Creating new Dashboards");
+    f.setCompanyLength(2);
+    f.setPosition("Programming");
+    f.display(true);
+
 
     return 0;
 }

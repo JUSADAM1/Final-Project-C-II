@@ -1,32 +1,34 @@
 #pragma once
 #include "Employee.h"
 
-class FullTime : private Employee
+class FullTime : public Employee
 {
 public:
 	FullTime();
-	FullTime(double salary, int shift, string benefits);
+	FullTime(double salary, int shift, bool medical, bool _401k, bool dental);
 	~FullTime();
 	void setSalary(double salary);
-	void setBenefits(string benefits);
+	void setBenefits(bool medical, bool _401k, bool dental);
 	void setWorkStartTime(vector<double> startTime);
 	void setWorkEndTime(vector<double> endTime);
 	void setWorkShift(int shift);
 
 	double getSalary();
-	string getBenefits();
+	void getBenefits();//Also Displays
 	vector<double> getWorkStartTime();
 	vector<double> getWorkEndTime();
 	int getWorkShift();
 
-	void display() override;
 	void display(bool workTime);
+
 private:
 	int shift;
 	double salary;
 	vector<double>workStartTime;
 	vector<double>workEndTime;
-	string benefits;
+	bool medical;
+	bool _401k;
+	bool dental;
 
 };
 

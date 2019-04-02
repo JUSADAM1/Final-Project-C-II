@@ -1,26 +1,27 @@
 #pragma once
 #include "Employee.h"
-class PartTime : private Employee
+
+
+class PartTime : public Employee
 {
 public:
 	PartTime();
 	PartTime(double totalHours, double hourlyPay, int shift);
 	~PartTime();
-	void setTotalHours();
-	void setHourlyPay();
-	void setWorkStartTime();
-	void setWorkEndTime();
-	void setWorkDays();
-	void setWorkShift();
+	void setTotalHours(double totalHours);
+	void setHourlyPay(double hourlyPay);
+	void setWorkStartTime(vector<double> startTime);
+	void setWorkEndTime(vector<double> endTime);
+	void setWorkDays(vector<string> workDays);
+	void setWorkShift(int shift);
 
-	void getTotalHours();
-	void getHourlyPay();
-	void getWorkStart();
-	void getWorkEnd();
-	void getWorkDays();
-	void getWorkShift();
+	double getTotalHours();
+	double getHourlyPay();
+    vector<double> getWorkStart();
+    vector<double> getWorkEnd();
+    vector<string> getWorkDays();
+	int getWorkShift();
 
-	void display();
 	void display(bool workTime);
 private:
 	int shift;
@@ -29,6 +30,7 @@ private:
 	vector<double> workStartTime;
 	vector<double> workEndTime;
 	vector<string> workDays;
+
 
 
 };

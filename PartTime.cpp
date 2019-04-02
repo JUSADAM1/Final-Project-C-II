@@ -9,71 +9,85 @@
  */
 
 PartTime::PartTime()
-{
-
-}
+= default;
 
 PartTime::PartTime(double totalHours, double hourlyPay, int shift){
-
+    setTotalHours(totalHours);
+    this->hourlyPay = hourlyPay;
+    this->shift = shift;
 }
 
 PartTime::~PartTime()
-{
+= default;
+
+void PartTime::setTotalHours(double totalHours) {
+
+    try {
+        if(totalHours > 20){
+            throw "Part Time Employee must be less then 20 hours, Setting to Max Hours.";
+        }
+
+        this->totalHours = totalHours;
+
+    }catch (char *mes){
+        cout << mes << endl;
+        this->totalHours = 20;
+    }
 
 }
 
-void PartTime::setTotalHours() {
-
+void PartTime::setHourlyPay(double hourlyPay) {
+    this->hourlyPay = hourlyPay;
 }
 
-void PartTime::setHourlyPay() {
-
+void PartTime::setWorkStartTime(vector<double> startTime) {
+    this->workStartTime = move(startTime);
 }
 
-void PartTime::setWorkStartTime() {
-
+void PartTime::setWorkEndTime(vector<double> endTime) {
+    this->workEndTime = move(endTime);
 }
 
-void PartTime::setWorkEndTime() {
-
+void PartTime::setWorkDays(vector<string> workDays) {
+    this->workDays = move(workDays);
 }
 
-void PartTime::setWorkDays() {
-
+void PartTime::setWorkShift(int shift) {
+    this->shift = shift;
 }
 
-void PartTime::setWorkShift() {
-
+double PartTime::getTotalHours() {
+    return totalHours;
 }
 
-void PartTime::getTotalHours() {
-
+double PartTime::getHourlyPay() {
+    return hourlyPay;
 }
 
-void PartTime::getHourlyPay() {
-
+vector<double> PartTime::getWorkStart() {
+    return workStartTime;
 }
 
-void PartTime::getWorkStart() {
-
+vector<double> PartTime::getWorkEnd() {
+    return workEndTime;
 }
 
-void PartTime::getWorkEnd() {
-
+vector<string> PartTime::getWorkDays() {
+    return workDays;
 }
 
-void PartTime::getWorkDays() {
-
-}
-
-void PartTime::getWorkShift() {
-
-}
-
-void PartTime::display() {
-    Employee::display();
+int PartTime::getWorkShift() {
+    return shift;
 }
 
 void PartTime::display(bool workTime) {
-
+    Employee::display();
+    cout << "Employee is Part Time" << endl;
+    cout << "Shift: " << getWorkShift() << endl;
+    cout << "Pay Rate: $" << getHourlyPay() << "/h" << endl;
+    if(workTime){
+    cout << "Employee Work Hours" << endl;
+    cout << "Total Hours: " << getTotalHours() << endl;
+        //Show Work time
+    }
 }
